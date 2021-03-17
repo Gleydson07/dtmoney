@@ -16,7 +16,7 @@ Boas práticas de programação
             Implica em acessibilidade
 
 Produtividade
-    Styled-components (Biblioteca in JS)
+    Styled-components (biblioteca in JS)
         Estilização CSS com Javascript
         Vantagens
             Suporta encadeamento de estilos
