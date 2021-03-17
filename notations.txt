@@ -1,0 +1,24 @@
+Boas práticas de programação
+    Aplicar export function em vez de export default
+        Vantagens
+            Evita que o dev altere a nomenclatura do component ao ponto se perder
+            no projeto.
+    Alterar o font-size da aplicação de acordo com o tamanho da tela usando media-query
+        O font-size padrão de aplicações desktop é 16px, logo se ajustarmos seu 
+        tamanho usando como referência a largura da tela, teremos uma visualização
+        mais porporcional dos elementos.
+        Ex.: @media(ma-width: 1080px){ font-size: 93.75% }
+        É possível fazer com que os elementos sofram alteração em suas medidas
+        também de acordo com o font-size definido, para isso devemos fazer uso da
+        unidade de medida REM, que possui a segunte proporção: 1REM = 16px;
+        Se reduzirmos o font-size para 93.75%, significa que;
+            Novo font-size é: 16px x 93.75% = 15px, logo 1REM = 15px.
+            Implica em acessibilidade
+
+Produtividade
+    Styled-components (Biblioteca in JS)
+        Estilização CSS com Javascript
+        Vantagens
+            Suporta encadeamento de estilos
+            Estilização apenas no escopo do componente estilizado
+    
