@@ -3,17 +3,18 @@ Boas práticas de programação
         Vantagens
             Evita que o dev altere a nomenclatura do component ao ponto se perder
             no projeto.
-    Alterar o font-size da aplicação de acordo com o tamanho da tela usando media-query
-        O font-size padrão de aplicações desktop é 16px, logo se ajustarmos seu 
-        tamanho usando como referência a largura da tela, teremos uma visualização
-        mais porporcional dos elementos.
-        Ex.: @media(ma-width: 1080px){ font-size: 93.75% }
-        É possível fazer com que os elementos sofram alteração em suas medidas
-        também de acordo com o font-size definido, para isso devemos fazer uso da
-        unidade de medida REM, que possui a segunte proporção: 1REM = 16px;
-        Se reduzirmos o font-size para 93.75%, significa que;
-            Novo font-size é: 16px x 93.75% = 15px, logo 1REM = 15px.
-            Implica em acessibilidade
+    Responsividade e acessabilidade
+        Alterar o font-size da aplicação de acordo com o tamanho da tela usando media-query
+            O font-size padrão de aplicações desktop é 16px, logo se ajustarmos seu 
+            tamanho usando como referência a largura da tela, teremos uma visualização
+            mais porporcional dos elementos.
+            Ex.: @media(ma-width: 1080px){ font-size: 93.75% }
+            É possível fazer com que os elementos sofram alteração em suas medidas
+            também de acordo com o font-size definido, para isso devemos fazer uso da
+            unidade de medida REM, que possui a segunte proporção: 1REM = 16px;
+            Se reduzirmos o font-size para 93.75%, significa que;
+                Novo font-size é: 16px x 93.75% = 15px, logo 1REM = 15px.
+                Implica em acessibilidade
 
 Produtividade
     Styled-components (biblioteca in JS)
@@ -21,4 +22,40 @@ Produtividade
         Vantagens
             Suporta encadeamento de estilos
             Estilização apenas no escopo do componente estilizado
-    
+            Permite passar propriedades para um elemento e estilizar o mesmo de 
+            acordo com o valor passado
+    APIFake
+        Permite simular um serviço backend enquanto desenvolvemos/testamos nosso 
+        frontend.
+            Ferramentas:
+                JSON Serve, é executado a parte da aplicação
+                MirageJS, banco de dados integrado, permite relacionamentos, preenche
+                    as informações com dados fictícios
+                Mock Service Work (MSW), quantidade inferior de features em relação ao 
+                    anterior
+    Axios
+        Cliente HTTP
+            Permite interceptação de requests e responses sempre que ocorrerem
+    Padrões
+        Nome de variáveis deve ser mais descritivo, mesmo que extensos, por exemplo:
+            Componentes de estado/variáveis
+                isNewTransactionModalOpen, serve para identificar se o modal está aberto, onde:
+                    is = geralmente usado quando queremos informar que o valor é booleano
+                    NewTransaction = referencia o 'componente' ao qual está relacionado
+                    Modal = componente ao qual a ação sera executada
+                    Open = ação a ser alterada
+        Ação do usuário/manipulado pelo usuário
+            É interessante iniciar a nomenclatura do componente com a palavra 
+            HANDLE (manusear).
+                handleOpenNewTransactionModal, sera usado para quando o usuário abrir o modal, onde:
+                    handle = identifica que é uma função que será chamada pela ação do usuário
+                    Open = evento executado quando a função for chamada
+                    NewTransaction = referencia o 'componente' ao qual está relacionado
+                    Modal = componente ao qual a ação sera executada
+        Funções
+            Iniciam-se com on, exemplo:
+                onClick
+        Props
+            Permite o envio de dados/valores para componentes filhos
+            Os componentes filhos tem a capacidade de alterar os componentes pais
+            através deste repasse de informações
