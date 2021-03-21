@@ -36,26 +36,46 @@ Produtividade
     Axios
         Cliente HTTP
             Permite interceptação de requests e responses sempre que ocorrerem
-    Padrões
-        Nome de variáveis deve ser mais descritivo, mesmo que extensos, por exemplo:
-            Componentes de estado/variáveis
-                isNewTransactionModalOpen, serve para identificar se o modal está aberto, onde:
-                    is = geralmente usado quando queremos informar que o valor é booleano
-                    NewTransaction = referencia o 'componente' ao qual está relacionado
-                    Modal = componente ao qual a ação sera executada
-                    Open = ação a ser alterada
-        Ação do usuário/manipulado pelo usuário
-            É interessante iniciar a nomenclatura do componente com a palavra 
-            HANDLE (manusear).
-                handleOpenNewTransactionModal, sera usado para quando o usuário abrir o modal, onde:
-                    handle = identifica que é uma função que será chamada pela ação do usuário
-                    Open = evento executado quando a função for chamada
-                    NewTransaction = referencia o 'componente' ao qual está relacionado
-                    Modal = componente ao qual a ação sera executada
-        Funções
-            Iniciam-se com on, exemplo:
-                onClick
-        Props
-            Permite o envio de dados/valores para componentes filhos
-            Os componentes filhos tem a capacidade de alterar os componentes pais
-            através deste repasse de informações
+    Formas de compartilhar estados entre componentes
+        Mover o estado para o componente pai, permitindo que a mesma seja repassada
+            para os componentes filhos, ideal para dados simples, como:
+                Informar o estado de um modal
+        ContextAPI
+            Serve para o compartilhamento de estados entre vários componentes da aplicação,
+            independente de onde estejam, usado quando é necessário passar informações
+            mais complexas ou quando parece não estar no local correto.
+                A forma mais simples de instanciar um contexto é dclarando o
+                createContext(). 
+                Fazemos uso do provider para que os outros componentes possam acessar 
+                este contexto, para isso declaramos um Context.Provider por volta
+                dos componentes que farão uso do context. 
+                Podemos consumir os dados do context de duas maneiras: 
+                    Mais antiga = fazemos uso do Context.Consumer
+                    Atual (hook) = useContext (ideal)
+                        Sempre que uma informação mudar dentro de um contexto, a
+                        aplicação será re-renderizada
+    
+Padrões
+    Nome de variáveis deve ser mais descritivo, mesmo que extensos, por exemplo:
+        Componentes de estado/variáveis
+            isNewTransactionModalOpen, serve para identificar se o modal está aberto, onde:
+                is = geralmente usado quando queremos informar que o valor é booleano
+                NewTransaction = referencia o 'componente' ao qual está relacionado
+                Modal = componente ao qual a ação sera executada
+                Open = ação a ser alterada
+    Ação do usuário/manipulado pelo usuário
+        É interessante iniciar a nomenclatura do componente com a palavra 
+        HANDLE (manusear).
+            handleOpenNewTransactionModal, sera usado para quando o usuário abrir o modal, onde:
+                handle = identifica que é uma função que será chamada pela ação do usuário
+                Open = evento executado quando a função for chamada
+                NewTransaction = referencia o 'componente' ao qual está relacionado
+                Modal = componente ao qual a ação sera executada
+    Funções
+        Iniciam-se com on, exemplo:
+            onClick
+    Props
+        Permite o envio de dados/valores para componentes filhos
+        Os componentes filhos tem a capacidade de alterar os componentes pais
+        através deste repasse de informações
+    
